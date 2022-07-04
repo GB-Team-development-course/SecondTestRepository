@@ -11,6 +11,11 @@ services:
       - "9090:9090"
     depends_on:
       - postgres_test_db
+  gateway:
+    build: ./gateway
+    container_name: gateway-service
+    depends_on:
+      - main-service
   postgres_test_db:
     image: postgres:13.2
     container_name: postgres_test_db
@@ -23,4 +28,3 @@ services:
       - "5435:5435"
     volumes:
       - ./docker-init/docker-init.sql:/docker-entrypoint-initdb.d/docker-init.sql
-

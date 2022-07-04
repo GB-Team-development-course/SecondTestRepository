@@ -7,6 +7,7 @@
 	<modules>
 		<module>core-service</module>
 		<module>liquibase</module>
+		<module>gateway</module>
 	</modules>
 
 	<parent>
