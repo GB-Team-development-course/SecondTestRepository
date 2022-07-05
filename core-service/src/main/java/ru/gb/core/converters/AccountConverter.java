@@ -1,13 +1,10 @@
 package ru.gb.core.converters;
 
-
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import ru.gb.core.dto.AccountDto;
 import ru.gb.core.entities.Account;
 
 @Component
-@RequiredArgsConstructor
 public class AccountConverter {
 
         public Account dtoToEntity(AccountDto accountDto) {
