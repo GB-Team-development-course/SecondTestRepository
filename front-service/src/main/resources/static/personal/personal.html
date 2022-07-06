@@ -1,0 +1,32 @@
+<div>
+    <p></p>
+    <h3>Personal page</h3>
+    <p></p>
+    <div class="row g-2">
+        <div class="col-sm-6 col-md-10">
+            <table class="table table-hover">
+                <tr>
+                    <td>Type</td>
+                    <td>Number</td>
+                    <td>Status</td>
+                    <td>Currency</td>
+                    <td>Created at</td>
+                    <td>Blocked at</td>
+                    <td>Closed at</td>
+
+                </tr>
+                <tbody>
+                <tr ng-repeat="a in AccountsPage">
+                    <td>{{a.accountType}}</td>
+                    <td>{{a.accountNumber}}</td>
+                    <td>{{a.accountStatus}}</td>
+                    <td>{{a.currency}}</td>
+                    <td>{{a.dtCreated}}</td>
+                    <td>{{a.dtBlocked}}</td>
+                    <td>{{a.dtClosed}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
