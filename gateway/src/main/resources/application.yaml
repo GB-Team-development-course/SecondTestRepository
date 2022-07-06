@@ -2,10 +2,16 @@ server:
   port: 5555
 
 spring:
-  application:
-    name: gateway-service
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:8190"
+            allowedMethods:
+              - GET
+              - POST
+            allowedHeaders: "*"
       routes:
         - id: core-service
           uri: http://core-service:9090/

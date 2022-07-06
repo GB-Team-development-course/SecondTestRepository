@@ -6,6 +6,7 @@
 
 	<modules>
 		<module>core-service</module>
+		<module>front-service</module>
 		<module>liquibase</module>
 		<module>gateway</module>
 	</modules>

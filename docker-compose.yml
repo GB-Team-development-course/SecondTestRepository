@@ -16,6 +16,11 @@ services:
       - main-service
     ports:
       - "5555:5555"
+  front-service:
+    build: ./front-service
+    container_name: front-service
+    ports:
+      - "8190:8190"
   postgres_test_db:
     image: postgres:13.2
     container_name: postgres_test_db
