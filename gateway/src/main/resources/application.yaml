@@ -20,3 +20,13 @@ spring:
           filters:
             - StripPrefix=1
             - PrefixPath=/
+        - id: front-service
+          uri: http://front-service:8190
+          predicates:
+            - Path=/
+          filters:
+            - StripPrefix=1
+            - PrefixPath=/
+logging:
+  level:
+    root: DEBUG
