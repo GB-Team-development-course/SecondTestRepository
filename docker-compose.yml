@@ -7,8 +7,6 @@ services:
     environment:
       - 'spring.datasource.url=jdbc:postgresql://postgres_test_db:5432/postgres'
       - 'spring.datasource.hikari.schema=test_schema'
-    ports:
-      - "9090:9090"
     depends_on:
       - postgres_test_db
   gateway:
@@ -16,6 +14,8 @@ services:
     container_name: gateway-service
     depends_on:
       - main-service
+    ports:
+      - "5555:5555"
   postgres_test_db:
     image: postgres:13.2
     container_name: postgres_test_db
