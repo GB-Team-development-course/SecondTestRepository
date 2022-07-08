@@ -9,6 +9,8 @@ services:
       - 'spring.datasource.hikari.schema=test_schema'
     depends_on:
       - postgres_test_db
+    ports:
+      - "9090:9090"
   gateway:
     build: ./gateway
     container_name: gateway-service
