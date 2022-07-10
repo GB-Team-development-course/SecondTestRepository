@@ -1,0 +1,37 @@
+version: '2.3'
+
+services:
+  main-service:
+    build: ./core-service
+    container_name: core-service
+    environment:
+      - 'spring.datasource.url=jdbc:postgresql://postgres_test_db:5432/postgres'
+      - 'spring.datasource.hikari.schema=test_schema'
+    depends_on:
+      - postgres_test_db
+    ports:
+      - "9090:9090"
+  gateway:
+    build: ./gateway
+    container_name: gateway-service
+    depends_on:
+      - main-service
+    ports:
+      - "5555:5555"
+  front-service:
+    build: ./front-service
+    container_name: front-service
+    ports:
+      - "8190:8190"
+  postgres_test_db:
+    image: postgres:13.2
+    container_name: postgres_test_db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5435:5432"
+    volumes:
+      - ./docker-init/docker-init.sql:/docker-entrypoint-initdb.d/docker-init.sql
